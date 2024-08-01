@@ -1,7 +1,3 @@
-
-
-
-
 ///===-- main/main.hxx --------------- macros for main.cxx -------*- C++ -*-===///
 ///                                                                            ///
 /// Part of the DoctorTate Project.                                            ///
@@ -51,6 +47,8 @@
 /////////////////////////////
 #include<cstdlib>
 #include<iostream>
+#include"common/config.hxx"
+#include<string>
 /////////////////////////////
 
 
@@ -60,12 +58,13 @@
 ////   Macros   ////
 ////////////////////
 
-///////////////////////////////////////////////////////////////////
-#define START_PROGRAM             int main(int argc,char**argv){/// 
-#define END___PROGRAM             /*Main entry point end*/}     ///
-#define EXIT_PROGRAM_SUCCEED      return 0;                     ///
-#define EXIT_PROGRAM_ERROR_OCCURD return 1;                     ///
-///////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+#define START_PROGRAM              int main(int argc,char**argv){/// 
+#define END___PROGRAM              /*Main entry point end*/}     ///
+#define EXIT_PROGRAM_SUCCEED       exit(0);                      ///
+#define EXIT_PROGRAM_ERROR_OCCURD  exit(1);                      ///
+#define PROGRAM_ARGUMENTS_DETECTED (argc > 1)                    ///
+////////////////////////////////////////////////////////////////////
 
 
 

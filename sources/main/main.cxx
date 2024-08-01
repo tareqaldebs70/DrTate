@@ -1,9 +1,14 @@
 
-#include"common/config.hxx"
-#include<iostream>
 
-int main()
-{
-    std::cout << PROJECT_VERSION_MAJOR << "\n";
-    return 0;
-}
+
+
+#include"common/config.hxx"
+#include"main.hxx"
+
+
+
+
+START_PROGRAM
+    std::cout << "another test\n";
+    EXIT_PROGRAM_SUCCEED
+END___PROGRAM

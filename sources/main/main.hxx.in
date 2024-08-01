@@ -49,6 +49,7 @@
 #include<iostream>
 #include"common/config.hxx"
 #include<string>
+#include"core/core.hxx"
 /////////////////////////////
 
 

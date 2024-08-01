@@ -1,7 +1,3 @@
-
-
-
-
 ///===--- common/config.hxx - Project config hearder -------*- C++ -*-------===///
 //                                                                             ///
 // Part of the DoctorTate Project.                                             ///

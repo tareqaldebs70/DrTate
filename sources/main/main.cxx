@@ -4,6 +4,15 @@
 
 
 START_PROGRAM
+
+
+
+
+    Application::Core* m_pCore = Application::Core::getInstance();
+
+
+
+
     if(PROGRAM_ARGUMENTS_DETECTED)
     {
         std::string m_arg1 = argv[1];
@@ -34,7 +43,8 @@ START_PROGRAM
     }
     else // just run the program
     {
-        std::cout << "program started\n";
+        m_pCore->run();
     }
+    m_pCore->releaseInstance();
     EXIT_PROGRAM_SUCCEED
 END___PROGRAM

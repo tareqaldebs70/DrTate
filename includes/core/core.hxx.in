@@ -36,6 +36,7 @@
 
 
 #ifndef __CORE_HXX__
+#define __CORE_HXX__
 
 
 
@@ -44,11 +45,12 @@
 /// Includes ///
 ////////////////
 
-///////////////////////
-#include<iostream>  ///
-#include<string>    ///
-#include<SDL2/SDL.h>///
-///////////////////////
+//////////////////////////////
+#include<iostream>         ///
+#include<string>           ///
+#include<SDL2/SDL.h>       ///
+#include"global/global.hxx"///
+//////////////////////////////
 
 
 
@@ -106,5 +108,4 @@ namespace Application
 
 
 
-#define __CORE_HXX__
 #endif

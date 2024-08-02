@@ -33,6 +33,7 @@
 
 
 #define PROJECT_NAME          "DoctorTate"
+#define PROJECT_STATE         "pre-alpha"
 #define PROJECT_VERSION_MAJOR 0
 #define PROJECT_VERSION_MINOR 0
 #define PROJECT_VERSION_PATCH 0

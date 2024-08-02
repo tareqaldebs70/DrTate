@@ -11,7 +11,6 @@
 
 //////////////////////////////
 #include"core/core.hxx"    ///
-#include"common/config.hxx"///
 //////////////////////////////
 
 
@@ -46,10 +45,11 @@ void Core::run(void)
     this->m_pRenderer = nullptr;
 
     this->m_pWindow = SDL_CreateWindow(
-		    "test window",
+		    Global::windowTitle.c_str(),
 		    SDL_WINDOWPOS_CENTERED,
 		    SDL_WINDOWPOS_CENTERED,
-		    640,480,
+		    Global::windowWidth,
+            Global::windowHeight,
 		    SDL_WINDOW_SHOWN 
 		    );
     this->m_pRenderer = SDL_CreateRenderer(
@@ -67,8 +67,7 @@ void Core::run(void)
     //////////////////////////////
 
     //////////////////////////////////////////////////
-    bool running = true;
-    while(running)
+    while(Global::isWindowRunning)
     {
 	    SDL_Event event;
 	    while(SDL_PollEvent(&event))
@@ -76,7 +75,7 @@ void Core::run(void)
 		    switch(event.type)
 		    {
 			    case SDL_QUIT:
-				    running = false;
+				    Global::isWindowRunning = false;
 				    break;
 			    default:
 				    break;

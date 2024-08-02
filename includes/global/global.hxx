@@ -1,12 +1,12 @@
-///===--- core/core.hxx - Heart of the program hearder -------*- C++ -*-------===///
+///===--- global/global.hxx - global variables Header  -------*- C++ -*-------===///
 ///                                                                              ///
 /// Part of the DoctorTate Project.                                              ///
-/// This class is the heart of the program                                       ///
+/// This file contains all global variables that will be used                    ///
 ///                                                                              ///
 //===-------------------------------------------------------------------------===///
 ///                                                                              ///
 /// \file                                                                        ///
-/// This file declare the the main class                                         ///
+/// This file declare the the global variables                                   ///
 ///                                                                              ///
 ///===------------------------------------------------------------------------===///
 
@@ -35,8 +35,8 @@
 
 
 
-#ifndef __CORE_HXX__
-#define __CORE_HXX__
+#ifndef __GLOBAL_HXX__
+#define __GLOBAL_HXX__
 
 
 
@@ -46,64 +46,31 @@
 ////////////////
 
 //////////////////////////////
-#include<iostream>         ///
 #include<string>           ///
 #include<SDL2/SDL.h>       ///
-#include"global/global.hxx"///
+#include"common/config.hxx"///
 //////////////////////////////
 
 
 
 
-namespace Application
+struct Global
 {
-
-
-
-
-    class Core
-    {
-
-
-
-
-        /////////////////////////////////////////////
-        /// Stuff that makes this class singleton ///
-        /////////////////////////////////////////////
-
-        /////////////////////////////////////////////
-    private:                                      ///
-        Core(){}                                  ///
-        ~Core(){}                                 ///
-        static Core* pInstance;                   ///
-    public:                                       ///
-        static Core* getInstance       (void);    ///
-        static void  releaseInstance   (void);    ///
-        Core(const Core&)            = delete;    ///
-        Core& operator=(const Core&) = delete;    ///
-        Core(Core&&)                 = delete;    ///
-        Core& operator=(Core&&)      = delete;    ///
-        /////////////////////////////////////////////
-
-
-
-	
-    private:
-	SDL_Window*   m_pWindow;
-	SDL_Renderer* m_pRenderer;
-    public:
-        void run(void);
     
 
 
+    ////////////////////
+    /// Window stuff ///
+    ////////////////////
 
-
-    };
-
-
-
-
-}
+    ///////////////////////////////////////
+    static bool         isWindowRunning;///
+    static std::string  windowTitle    ;///
+    static int          windowWidth    ;///
+    static int          windowHeight   ;///
+    static SDL_Surface* windowIcon     ;///
+    ///////////////////////////////////////
+};
 
 
 

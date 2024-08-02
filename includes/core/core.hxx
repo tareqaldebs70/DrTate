@@ -44,9 +44,11 @@
 /// Includes ///
 ////////////////
 
-///////////////////////////////
-#include<iostream>
-///////////////////////////////
+///////////////////////
+#include<iostream>  ///
+#include<string>    ///
+#include<SDL2/SDL.h>///
+///////////////////////
 
 
 
@@ -83,9 +85,13 @@ namespace Application
 
 
 
-
+	
+    private:
+	SDL_Window*   m_pWindow;
+	SDL_Renderer* m_pRenderer;
     public:
         void run(void);
+    
 
 
 

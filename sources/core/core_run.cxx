@@ -62,6 +62,13 @@ void Core::run(void)
 
 
 
+    ///////////////////////////
+    /// Loading window icon ///
+    ///////////////////////////
+
+    /////////////////////////////////////
+    Global::windowIcon = SDL_LoadBMP("assets/icon.bmp");
+    SDL_SetWindowIcon(this->m_pWindow,Global::windowIcon);
     //////////////////////////////
     /// Running the application///
     //////////////////////////////
@@ -99,11 +106,12 @@ void Core::run(void)
     /// Cleaning SDL stuff ///
     //////////////////////////
     
-    //////////////////////////////////////////
-    SDL_DestroyRenderer(this->m_pRenderer);///
-    SDL_DestroyWindow  (this->m_pWindow  );///
-    SDL_Quit           (                 );///
-    //////////////////////////////////////////
+    ///////////////////////////////////////////
+    SDL_FreeSurface    (Global::windowIcon);///
+    SDL_DestroyRenderer(this->m_pRenderer );///
+    SDL_DestroyWindow  (this->m_pWindow   );///
+    SDL_Quit           (                  );///
+    ///////////////////////////////////////////
 
 
 

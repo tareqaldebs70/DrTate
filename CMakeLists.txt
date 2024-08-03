@@ -17,6 +17,8 @@ add_executable(${PROJECT_NAME}
     ${PROJECT_SOURCE_DIR}/sources/core/core_init.cxx
     ${PROJECT_SOURCE_DIR}/sources/core/core_run.cxx
     ${PROJECT_SOURCE_DIR}/sources/global/global_window.cxx
+    ${PROJECT_SOURCE_DIR}/sources/global/global_scene_manager.cxx
+    ${PROJECT_SOURCE_DIR}/sources/scene_manager/scene_manager_init.cxx
 )
 
 # //// configure files ////
@@ -35,6 +37,18 @@ configure_file(
 configure_file(
     ${PROJECT_SOURCE_DIR}/includes/global/global.hxx.in
     ${PROJECT_SOURCE_DIR}/includes/global/global.hxx
+)
+configure_file(
+    ${PROJECT_SOURCE_DIR}/includes/scenes/scene.hxx.in
+    ${PROJECT_SOURCE_DIR}/includes/scenes/scene.hxx
+)
+configure_file(
+    ${PROJECT_SOURCE_DIR}/includes/scene_manager/scene_manager.hxx.in
+    ${PROJECT_SOURCE_DIR}/includes/scene_manager/scene_manager.hxx
+)
+configure_file(
+    ${PROJECT_SOURCE_DIR}/includes/scene_manager/scenes_list.hxx.in
+    ${PROJECT_SOURCE_DIR}/includes/scene_manager/scenes_list.hxx
 )
 # /////////////////////////
 

@@ -45,12 +45,13 @@
 /// Includes ///
 ////////////////
 
-//////////////////////////////
-#include<iostream>         ///
-#include<string>           ///
-#include<SDL2/SDL.h>       ///
-#include"global/global.hxx"///
-//////////////////////////////
+////////////////////////////////////////////
+#include<iostream>                       ///
+#include<string>                         ///
+#include<SDL2/SDL.h>                     ///
+#include"global/global.hxx"              ///
+#include"scene_manager/scene_manager.hxx"///
+////////////////////////////////////////////
 
 
 

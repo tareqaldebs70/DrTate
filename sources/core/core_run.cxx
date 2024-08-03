@@ -75,6 +75,17 @@ void Core::run(void)
 
 
     //////////////////////////////
+    /// Starting scene Manager ///
+    //////////////////////////////
+
+    ///////////////////////////////////////////////////////////////////////////
+    Game::SceneManager* m_pSceneManager = Game::SceneManager::getInstance();///
+    ///////////////////////////////////////////////////////////////////////////
+
+
+
+
+    //////////////////////////////
     /// Running the application///
     //////////////////////////////
 
@@ -89,9 +100,9 @@ void Core::run(void)
         /// Load Scene if not loaded ///
         ////////////////////////////////
 
-        ///////////////////////////////////////////////////
-
-        ///////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////
+        m_pSceneManager->init(this->m_pWindow,this->m_pRenderer);///
+        ////////////////////////////////////////////////////////////
 
 
 
@@ -119,16 +130,36 @@ void Core::run(void)
         ///                                                              ///
                 /////////////////////////////////////////////////        ///
                 case SDL_KEYDOWN:                             ///        ///
+                    m_pSceneManager->whenKeyboardKeyIsPressed(///        ///
+                        this->m_pWindow,                      ///        ///
+                        &event                                ///        ///
+                    );                                        ///        ///
                     break;                                    ///        ///
                 case SDL_KEYUP:                               ///        ///
+                    m_pSceneManager->whenKeyboardKeyIsReleased///        ///
+                    (this->m_pWindow,&event);                 ///        ///
                     break;                                    ///        ///
                 case SDL_MOUSEBUTTONDOWN:                     ///        ///
+                    m_pSceneManager->whenMouseButtonIsPressed(///        ///
+                        this->m_pWindow,                      ///        ///
+                        &event                                ///        ///
+                    );                                        ///        ///
                     break;                                    ///        ///
                 case SDL_MOUSEBUTTONUP:                       ///        ///
+                    m_pSceneManager->whenMouseButtonIsReleased///        ///
+                    (this->m_pWindow,&event);                 ///        ///
                     break;                                    ///        ///
                 case SDL_MOUSEMOTION:                         ///        ///
+                    m_pSceneManager->whenMouseMoves(          ///        ///
+                        this->m_pWindow,                      ///        ///
+                        &event                                ///        ///
+                    );                                        ///        ///
                     break;                                    ///        ///
                 case SDL_MOUSEWHEEL:                          ///        ///
+                    m_pSceneManager->whenMouseWheelIsRolled(  ///        ///
+                        this->m_pWindow,                      ///        ///
+                        &event                                ///        ///
+                    );                                        ///        ///
                     break;                                    ///        ///
                 /////////////////////////////////////////////////        ///
         ///                                                              ///
@@ -148,9 +179,9 @@ void Core::run(void)
         /// Updating scene simulation  ///
         //////////////////////////////////
 
-        ////////////////////////////////////////
-
-        ////////////////////////////////////////
+        ///////////////////////////////////////////////////////
+        m_pSceneManager->updateSimulation(SDL_GetTicks64());///
+        ///////////////////////////////////////////////////////
 
 
 
@@ -159,9 +190,9 @@ void Core::run(void)
         /// Playing audio ///
         /////////////////////
 
-        ///////////////////////////////////////////
-
-        ///////////////////////////////////////////
+        ////////////////////////////////
+        m_pSceneManager->playAudio();///
+        ////////////////////////////////
 
 
 
@@ -176,7 +207,8 @@ void Core::run(void)
 			    0,0,0,255                             ///
 			    );                                    ///
 	    SDL_RenderClear  (this->m_pRenderer);         ///
-        ///                                           ///
+        m_pSceneManager->renderGraphics               ///
+        (this->m_pRenderer);                          ///
 	    SDL_RenderPresent(this->m_pRenderer);         ///
         /////////////////////////////////////////////////
 
@@ -194,6 +226,8 @@ void Core::run(void)
     //////////////////////////
     
     ///////////////////////////////////////////
+    m_pSceneManager->exit(this->m_pWindow) ;///
+    m_pSceneManager->releaseInstance()     ;///
     SDL_FreeSurface    (Global::windowIcon);///
     SDL_DestroyRenderer(this->m_pRenderer );///
     SDL_DestroyWindow  (this->m_pWindow   );///

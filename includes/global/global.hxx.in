@@ -45,11 +45,12 @@
 /// Includes ///
 ////////////////
 
-//////////////////////////////
-#include<string>           ///
-#include<SDL2/SDL.h>       ///
-#include"common/config.hxx"///
-//////////////////////////////
+//////////////////////////////////////////
+#include<string>                       ///
+#include<SDL2/SDL.h>                   ///
+#include"common/config.hxx"            ///
+#include"scene_manager/scenes_list.hxx"///
+//////////////////////////////////////////
 
 
 
@@ -70,6 +71,20 @@ struct Global
     static int          windowHeight   ;///
     static SDL_Surface* windowIcon     ;///
     ///////////////////////////////////////
+
+
+
+    //////////////////////////
+    /// SceneManager stuff ///
+    //////////////////////////
+
+    ////////////////////////////////
+    static uint8_t selectedScene;///
+    ////////////////////////////////
+
+
+
+    
 };
 
 

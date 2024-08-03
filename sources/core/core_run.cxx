@@ -66,9 +66,14 @@ void Core::run(void)
     /// Loading window icon ///
     ///////////////////////////
 
-    /////////////////////////////////////
-    Global::windowIcon = SDL_LoadBMP("assets/icon.bmp");
-    SDL_SetWindowIcon(this->m_pWindow,Global::windowIcon);
+    /////////////////////////////////////////////////////////
+    Global::windowIcon = SDL_LoadBMP("assets/icon.bmp");  ///
+    SDL_SetWindowIcon(this->m_pWindow,Global::windowIcon);///
+    /////////////////////////////////////////////////////////
+
+
+
+
     //////////////////////////////
     /// Running the application///
     //////////////////////////////
@@ -76,28 +81,110 @@ void Core::run(void)
     //////////////////////////////////////////////////
     while(Global::isWindowRunning)
     {
-	    SDL_Event event;
-	    while(SDL_PollEvent(&event))
-	    {
-		    switch(event.type)
-		    {
-			    case SDL_QUIT:
-				    Global::isWindowRunning = false;
-				    break;
-			    default:
-				    break;
-		    }
-	    }
 
-	    SDL_SetRenderDrawColor(
-			    this->m_pRenderer,
-			    0,0,255,255
-			    );
-	    SDL_RenderClear  (this->m_pRenderer);
 
-	    SDL_RenderPresent(this->m_pRenderer);
+
+
+        ////////////////////////////////
+        /// Load Scene if not loaded ///
+        ////////////////////////////////
+
+        ///////////////////////////////////////////////////
+
+        ///////////////////////////////////////////////////
+
+
+
+
+        //////////////////////
+        /// Handing events ///
+        //////////////////////
+
+        ////////////////////////////////////////////////////////////////////
+	    SDL_Event event;                                                 ///
+	    while(SDL_PollEvent(&event))                                     ///
+	    {                                                                ///
+		    switch(event.type)                                           ///
+		    {                                                            ///
+			    case SDL_QUIT:                                           ///
+				    Global::isWindowRunning = false;                     ///
+				    break;                                               ///
+        ///                                                              ///
+        ///                                                              ///
+        ///                                                              ///
+        ///                                                              ///
+                /////////////////////////                                ///
+                /// User input events ///                                ///
+                /////////////////////////                                ///
+        ///                                                              ///
+                /////////////////////////////////////////////////        ///
+                case SDL_KEYDOWN:                             ///        ///
+                    break;                                    ///        ///
+                case SDL_KEYUP:                               ///        ///
+                    break;                                    ///        ///
+                case SDL_MOUSEBUTTONDOWN:                     ///        ///
+                    break;                                    ///        ///
+                case SDL_MOUSEBUTTONUP:                       ///        ///
+                    break;                                    ///        ///
+                case SDL_MOUSEMOTION:                         ///        ///
+                    break;                                    ///        ///
+                case SDL_MOUSEWHEEL:                          ///        ///
+                    break;                                    ///        ///
+                /////////////////////////////////////////////////        ///
+        ///                                                              ///
+        ///                                                              ///
+        ///                                                              ///
+        ///                                                              ///
+			    default:                                                 ///
+				    break;                                               ///
+		    }                                                            ///
+	    }                                                                ///
+        ////////////////////////////////////////////////////////////////////
+
+
+
+
+        //////////////////////////////////
+        /// Updating scene simulation  ///
+        //////////////////////////////////
+
+        ////////////////////////////////////////
+
+        ////////////////////////////////////////
+
+
+
+
+        /////////////////////
+        /// Playing audio ///
+        /////////////////////
+
+        ///////////////////////////////////////////
+
+        ///////////////////////////////////////////
+
+
+
+
+        /////////////////
+        /// Rendering ///
+        /////////////////
+
+        /////////////////////////////////////////////////
+	    SDL_SetRenderDrawColor(                       ///
+			    this->m_pRenderer,                    ///
+			    0,0,0,255                             ///
+			    );                                    ///
+	    SDL_RenderClear  (this->m_pRenderer);         ///
+        ///                                           ///
+	    SDL_RenderPresent(this->m_pRenderer);         ///
+        /////////////////////////////////////////////////
+
+
+
+
     }
-    //////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////
 
 
 

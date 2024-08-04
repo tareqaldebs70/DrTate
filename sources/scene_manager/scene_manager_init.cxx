@@ -11,6 +11,8 @@
 
 ////////////////////////////////////////////
 #include"scene_manager/scene_manager.hxx"///
+#include"scenes/main_menu/main_menu.hxx" ///
+#include<SDL2/SDL.h>                     ///
 ////////////////////////////////////////////
 
 
@@ -49,11 +51,28 @@ void SceneManager::releaseInstance(void)
 
 void SceneManager::init(SDL_Window* pWindow,SDL_Renderer* pRenderer)
 {
+    //////////////////////////////////
+    /// First Scene to be selected ///
+    //////////////////////////////////
+
+    //////////////////////
+    if(Global::selectedScene==NULL_SCENE)
+        Global::selectedScene = MAIN_MENU_SCENE;
+    /////////////////////
     if(this->m_CurrentScene != Global::selectedScene)
     {
         switch(Global::selectedScene)
         {
             case MAIN_MENU_SCENE:
+                this->m_CurrentScene = MAIN_MENU_SCENE;
+                if(this->m_pCurrentScene!=nullptr)
+                {
+                    m_pCurrentScene->exit(pWindow);
+                    delete m_pCurrentScene;
+                }
+                this->m_pCurrentScene = new Scenes::MainMenu;
+                m_pCurrentScene->init(pWindow,pRenderer);
+
                 break;
             default:
                 break;

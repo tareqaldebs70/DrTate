@@ -19,6 +19,13 @@ add_executable(${PROJECT_NAME}
     ${PROJECT_SOURCE_DIR}/sources/global/global_window.cxx
     ${PROJECT_SOURCE_DIR}/sources/global/global_scene_manager.cxx
     ${PROJECT_SOURCE_DIR}/sources/scene_manager/scene_manager_init.cxx
+    ${PROJECT_SOURCE_DIR}/sources/scenes/main_menu/init.cxx
+    ${PROJECT_SOURCE_DIR}/sources/scenes/main_menu/exit.cxx
+    ${PROJECT_SOURCE_DIR}/sources/scenes/main_menu/inputs/keyboard.cxx
+    ${PROJECT_SOURCE_DIR}/sources/scenes/main_menu/inputs/mouse.cxx
+    ${PROJECT_SOURCE_DIR}/sources/scenes/main_menu/update_simulation.cxx
+    ${PROJECT_SOURCE_DIR}/sources/scenes/main_menu/outputs/audio.cxx
+    ${PROJECT_SOURCE_DIR}/sources/scenes/main_menu/outputs/graphics.cxx
 )
 
 # //// configure files ////
@@ -49,6 +56,10 @@ configure_file(
 configure_file(
     ${PROJECT_SOURCE_DIR}/includes/scene_manager/scenes_list.hxx.in
     ${PROJECT_SOURCE_DIR}/includes/scene_manager/scenes_list.hxx
+)
+configure_file(
+    ${PROJECT_SOURCE_DIR}/includes/scenes/main_menu/main_menu.hxx.in
+    ${PROJECT_SOURCE_DIR}/includes/scenes/main_menu/main_menu.hxx
 )
 # /////////////////////////
 

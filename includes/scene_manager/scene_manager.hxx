@@ -1,6 +1,6 @@
 ///===--- scene_manager/scene_manager - scene manager class -*- C++ -*-------===///
 ///                                                                             ///
-/// Part of the DoctorTate Project.                                             ///
+/// Part of the @PROJECT_NAME@ Project.                                             ///
 ///                                                                             ///
 ///===-----------------------------------------------------------------------===///
 ///                                                                             ///
@@ -13,7 +13,7 @@
 
 
 ///==---------------------------------------------------------------------===///
-///DoctorTate It's a platformer game                                         ///
+///@PROJECT_NAME@ It's a platformer game                                         ///
 ///Copyright (C) 2024  TareqAldebs                                           ///
 ///==---------------------------------------------------------------------===///
 ///This program is free software: you can redistribute it and/or modify      ///
@@ -87,6 +87,7 @@ namespace Game
 
 
 
+
     private:
         uint8_t     m_CurrentScene      = NULL_SCENE;
         Scene*      m_pCurrentScene     = nullptr;
@@ -103,6 +104,9 @@ namespace Game
         void init(SDL_Window* pWindow,SDL_Renderer* pRenderer);///
         void exit(SDL_Window* pWindow                        );///
         //////////////////////////////////////////////////////////
+
+
+
 
         //////////////////////
         /// Input methodes ///
@@ -132,6 +136,7 @@ namespace Game
 
 
 
+
         //////////////
         /// Output ///
         //////////////
@@ -140,6 +145,7 @@ namespace Game
         void playAudio     (        void           );///
         void renderGraphics(SDL_Renderer* pRenderer);///
         ////////////////////////////////////////////////
+
 
 
 

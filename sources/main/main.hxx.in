@@ -36,8 +36,14 @@
 
 
 #ifndef __MAIN_HXX__
+#define __MAIN_HXX__
 
-
+#ifdef _WIN32
+    #define SDL_MAIN_HANDLED
+#endif
+#ifdef _WIN64
+    #define SDL_MAIN_HANDLED
+#endif
 
 
 ////////////////////
@@ -70,5 +76,4 @@
 
 
 
-#define __MAIN_HXX__
 #endif

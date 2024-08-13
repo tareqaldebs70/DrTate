@@ -22,19 +22,51 @@ using namespace Scenes;
 
 
 
-void MainMenu::whenMouseButtonIsPressed (SDL_Window* pWindow, SDL_Event* pEvent)
-{
+//////////////////////////////////////////////////
+/// when a mouse button is pressed do someting ///
+//////////////////////////////////////////////////
 
-}
-void MainMenu::whenMouseButtonIsReleased(SDL_Window* pWindow, SDL_Event* pEvent)
-{
+///////////////////////////////////////////////////////////////////////////////////
+void MainMenu::whenMouseButtonIsPressed (SDL_Window* pWindow, SDL_Event* pEvent)///
+{                                                                               ///
+}                                                                               ///
+///////////////////////////////////////////////////////////////////////////////////
 
-}
-void MainMenu::whenMouseMoves           (SDL_Window* pWindow, SDL_Event* pEvent)
-{
 
-}
-void MainMenu::whenMouseWheelIsRolled   (SDL_Window* pWindow, SDL_Event* pEvent)
-{
 
-}
+
+/////////////////////////////////////////////////
+/// when mouse button is released do someting ///
+/////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////////////
+void MainMenu::whenMouseButtonIsReleased(SDL_Window* pWindow, SDL_Event* pEvent)///
+{                                                                               ///
+}                                                                               ///
+///////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+////////////////////////////////////
+/// when mouse moves do someting ///
+////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////////////
+void MainMenu::whenMouseMoves           (SDL_Window* pWindow, SDL_Event* pEvent)///
+{                                                                               ///
+}                                                                               ///
+///////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+///////////////////////////////////////////////
+/// when mouse wheel is rolled do something ///
+///////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////////////
+void MainMenu::whenMouseWheelIsRolled   (SDL_Window* pWindow, SDL_Event* pEvent)///
+{                                                                               ///
+}                                                                               ///
+///////////////////////////////////////////////////////////////////////////////////

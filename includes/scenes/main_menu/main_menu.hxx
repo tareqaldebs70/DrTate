@@ -1,6 +1,6 @@
 ///===--- scenes/main_menu.hxx - main menu scene        -----*- C++ -*-------===///
 ///                                                                             ///
-/// Part of the DoctorTate Project.                                             ///
+/// Part of the @PROJECT_NAME@ Project.                                             ///
 ///                                                                             ///
 ///===-----------------------------------------------------------------------===///
 ///                                                                             ///
@@ -13,7 +13,7 @@
 
 
 ///==---------------------------------------------------------------------===///
-///DoctorTate It's a platformer game                                         ///
+///@PROJECT_NAME@ It's a platformer game                                         ///
 ///Copyright (C) 2024  TareqAldebs                                           ///
 ///==---------------------------------------------------------------------===///
 ///This program is free software: you can redistribute it and/or modify      ///
@@ -44,9 +44,12 @@
 /// Includes ///
 ////////////////
 
-/////////////////////////////
-#include"scenes/scene.hxx"///
-/////////////////////////////
+//////////////////////////////////////////////////
+#include"scenes/scene.hxx"                     ///
+#include"resource_manager/resource_manager.hxx"///
+#include"global/global.hxx"                    ///
+#include<SDL2/SDL_ttf.h>                       ///
+//////////////////////////////////////////////////
 
 
 
@@ -66,6 +69,28 @@ namespace Game
         class MainMenu : public Scene
         {
 
+            
+
+
+        private:
+
+            
+
+
+            //////////////////////////////////////
+            /// Variables needed by this scene ///
+            //////////////////////////////////////
+
+            /////////////////////////////////////////////////////////////////////
+            SDL_Rect       m_selected_dest_rect; //                           ///
+            uint8_t        m_choice = 0; // determine which option is selected///
+            //                           // in the main menu                  ///
+            const uint8_t* m_key_state;                                       ///
+            bool           m_selected_changed = false;                        ///
+            ///                                                               ///
+            SDL_Rect m_project_info_rect;                                     ///
+            /////////////////////////////////////////////////////////////////////
+
 
 
 
@@ -82,6 +107,9 @@ namespace Game
             void init(SDL_Window* pWindow,SDL_Renderer* pRenderer) final;///
             void exit(SDL_Window* pWindow                        ) final;///
             ////////////////////////////////////////////////////////////////
+
+
+
 
             //////////////////////
             /// Input methodes ///
@@ -108,6 +136,7 @@ namespace Game
             ///////////////////////////////////////////////////
             void updateSimulation(uint64_t deltaTime) final;///
             ///////////////////////////////////////////////////
+
 
 
 

@@ -1,6 +1,6 @@
 ///===--- scene_manager/scenes_list.hxx - scenes_list   -----*- C++ -*-------===///
 ///                                                                             ///
-/// Part of the DoctorTate Project.                                             ///
+/// Part of the @PROJECT_NAME@ Project.                                             ///
 ///                                                                             ///
 ///===-----------------------------------------------------------------------===///
 ///                                                                             ///
@@ -13,7 +13,7 @@
 
 
 ///==---------------------------------------------------------------------===///
-///DoctorTate It's a platformer game                                         ///
+///@PROJECT_NAME@ It's a platformer game                                         ///
 ///Copyright (C) 2024  TareqAldebs                                           ///
 ///==---------------------------------------------------------------------===///
 ///This program is free software: you can redistribute it and/or modify      ///
@@ -44,10 +44,11 @@
 /// SCENES LIST ///
 ///////////////////
 
-///////////////////////////////
-#define NULL_SCENE      0x0 ///
-#define MAIN_MENU_SCENE 0x1 ///
-///////////////////////////////
+/////////////////////////////////////
+#define NULL_SCENE            0x0 ///
+#define MAIN_MENU_SCENE       0x1 ///
+#define SETTINGS_MENU_SCENE   0x2 ///
+/////////////////////////////////////
 
 
 

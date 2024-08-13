@@ -1,6 +1,6 @@
 ///===--- core/core.hxx - Heart of the program hearder -------*- C++ -*-------===///
 ///                                                                              ///
-/// Part of the DoctorTate Project.                                              ///
+/// Part of the @PROJECT_NAME@ Project.                                              ///
 /// This class is the heart of the program                                       ///
 ///                                                                              ///
 //===-------------------------------------------------------------------------===///
@@ -14,7 +14,7 @@
 
 
 ///==---------------------------------------------------------------------===///
-///DoctorTate It's a platformer game                                         ///
+///@PROJECT_NAME@ It's a platformer game                                         ///
 ///Copyright (C) 2024  TareqAldebs                                           ///
 ///==---------------------------------------------------------------------===///
 ///This program is free software: you can redistribute it and/or modify      ///
@@ -49,6 +49,9 @@
 #include<iostream>                       ///
 #include<string>                         ///
 #include<SDL2/SDL.h>                     ///
+#include<SDL2/SDL_image.h>               ///
+#include<SDL2/SDL_mixer.h>               ///
+#include<SDL2/SDL_ttf.h>                 ///
 #include"global/global.hxx"              ///
 #include"scene_manager/scene_manager.hxx"///
 ////////////////////////////////////////////
@@ -95,7 +98,6 @@ namespace Application
     public:
         void run(void);
     
-
 
 
 

@@ -1,6 +1,6 @@
 ///===---- scenes/scene.hxx - scene abstract class    -------*- C++ -*-------===///
 ///                                                                             ///
-/// Part of the DoctorTate Project.                                             ///
+/// Part of the @PROJECT_NAME@ Project.                                             ///
 ///                                                                             ///
 //===------------------------------------------------------------------------===///
 ///                                                                             ///
@@ -13,7 +13,7 @@
 
 
 ///==---------------------------------------------------------------------===///
-///DoctorTate It's a platformer game                                         ///
+///@PROJECT_NAME@ It's a platformer game                                         ///
 ///Copyright (C) 2024  TareqAldebs                                           ///
 ///==---------------------------------------------------------------------===///
 ///This program is free software: you can redistribute it and/or modify      ///
@@ -77,6 +77,9 @@ namespace Game
         virtual void exit(SDL_Window* pWindow                        ) = 0;///
         //////////////////////////////////////////////////////////////////////
 
+
+
+
         //////////////////////
         /// Input methodes ///
         //////////////////////
@@ -102,6 +105,7 @@ namespace Game
         /////////////////////////////////////////////////////////
         virtual void updateSimulation(uint64_t deltaTime) = 0;///
         /////////////////////////////////////////////////////////
+
 
 
 

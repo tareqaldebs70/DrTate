@@ -1,6 +1,6 @@
 ///===--- global/global.hxx - global variables Header  -------*- C++ -*-------===///
 ///                                                                              ///
-/// Part of the DoctorTate Project.                                              ///
+/// Part of the @PROJECT_NAME@ Project.                                              ///
 /// This file contains all global variables that will be used                    ///
 ///                                                                              ///
 //===-------------------------------------------------------------------------===///
@@ -14,7 +14,7 @@
 
 
 ///==---------------------------------------------------------------------===///
-///DoctorTate It's a platformer game                                         ///
+///@PROJECT_NAME@ It's a platformer game                                         ///
 ///Copyright (C) 2024  TareqAldebs                                           ///
 ///==---------------------------------------------------------------------===///
 ///This program is free software: you can redistribute it and/or modify      ///
@@ -48,6 +48,7 @@
 //////////////////////////////////////////
 #include<string>                       ///
 #include<SDL2/SDL.h>                   ///
+#include<SDL2/SDL_ttf.h>               ///
 #include"common/config.hxx"            ///
 #include"scene_manager/scenes_list.hxx"///
 //////////////////////////////////////////
@@ -57,20 +58,22 @@
 
 struct Global
 {
-    
+
+
 
 
     ////////////////////
     /// Window stuff ///
     ////////////////////
 
-    ///////////////////////////////////////
-    static bool         isWindowRunning;///
-    static std::string  windowTitle    ;///
-    static int          windowWidth    ;///
-    static int          windowHeight   ;///
-    static SDL_Surface* windowIcon     ;///
-    ///////////////////////////////////////
+    //////////////////////////////////////////
+    static bool            isWindowRunning;///
+    static std::string     windowTitle    ;///
+    static int             windowWidth    ;///
+    static int             windowHeight   ;///
+    static SDL_Surface*    windowIcon     ;///
+    //////////////////////////////////////////
+
 
 
 
@@ -84,7 +87,41 @@ struct Global
 
 
 
-    
+
+    //////////////////////
+    /// Settings stuff ///
+    //////////////////////
+
+    //////////////////////////////////////
+    static void loadSettings(void);    ///
+    static void saveSettings(void);    ///
+    static bool windowed;              ///
+    static uint8_t master_volume;      ///
+    static uint8_t sfx_volume;         ///
+    static uint8_t music_volume;       ///
+    //////////////////////////////////////
+
+
+
+
+    ///////////////////
+    /// Fonts stuff ///
+    ///////////////////
+
+    //////////////////////////////////////////
+    static TTF_Font*       font     ;      ///
+    static SDL_Texture*    writeProjectInfo///
+    (SDL_Renderer*pRenderer);              ///
+    static SDL_Texture*    writeText(      ///
+        SDL_Renderer*pRenderer,            ///
+        TTF_Font*Font,                     ///
+        std::string text,                  ///
+        SDL_Color color);                  ///
+    //////////////////////////////////////////
+
+
+
+
 };
 
 

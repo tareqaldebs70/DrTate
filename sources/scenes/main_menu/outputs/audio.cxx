@@ -22,7 +22,24 @@ using namespace Scenes;
 
 
 
-void MainMenu::playAudio(void)
-{
+/////////////////////
+/// playing Audio ///
+/////////////////////
 
-}
+////////////////////////////////////////////////////////////////////////
+void MainMenu::playAudio(void)                                       ///
+{                                                                    ///
+    if(this->m_selected_changed == true)                             ///
+    {                                                                ///
+        Mix_PlayChannel(-1,ResourceManager::g_SoundList["select"],0);///
+        this->m_selected_changed = false;                            ///
+    }                                                                ///
+    if(!Mix_PlayingMusic())                                          ///
+    {                                                                ///
+        Mix_PlayMusic(                                               ///
+            ResourceManager::g_MusicList["main_menu"],               ///
+            0                                                        ///
+        );                                                           ///
+    }                                                                ///
+}                                                                    ///
+////////////////////////////////////////////////////////////////////////

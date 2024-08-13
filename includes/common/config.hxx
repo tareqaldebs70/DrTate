@@ -1,17 +1,17 @@
 ///===--- common/config.hxx - Project config hearder -------*- C++ -*-------===///
 //                                                                             ///
-// Part of the DoctorTate Project.                                             ///
+// Part of the @PROJECT_NAME@ Project.                                             ///
 ///                                                                            ///
 //===-----------------------------------------------------------------------===///
 ///                                                                            ///
 /// \file                                                                      ///
-/// This file contains the macros of the DoctorTate Project config             ///
+/// This file contains the macros of the @PROJECT_NAME@ Project config             ///
 ///                                                                            ///
 ///===----------------------------------------------------------------------===///
 
 
 ///==---------------------------------------------------------------------===///
-///DoctorTate It's a platformer game                                         ///
+///@PROJECT_NAME@ It's a platformer game                                         ///
 ///Copyright (C) 2024  TareqAldebs                                           ///
 ///==---------------------------------------------------------------------===///
 ///This program is free software: you can redistribute it and/or modify      ///
@@ -31,10 +31,15 @@
 
 
 
+/////////////////////////////
+/// Project Config Macros ///
+/////////////////////////////
 
-#define PROJECT_NAME          "DoctorTate"
-#define PROJECT_STATE         "pre-alpha"
-#define PROJECT_VERSION_MAJOR 0
-#define PROJECT_VERSION_MINOR 0
-#define PROJECT_VERSION_PATCH 0
-#define PROJECT_VERSION_TWEAK 1
+/////////////////////////////////////////////////////////
+#define PROJECT_NAME          "@PROJECT_NAME@"        ///
+#define PROJECT_STATE         "@PROJECT_STATE@"       ///
+#define PROJECT_VERSION_MAJOR @PROJECT_VERSION_MAJOR@ ///
+#define PROJECT_VERSION_MINOR @PROJECT_VERSION_MINOR@ ///
+#define PROJECT_VERSION_PATCH @PROJECT_VERSION_PATCH@ ///
+#define PROJECT_VERSION_TWEAK @PROJECT_VERSION_TWEAK@ ///
+/////////////////////////////////////////////////////////

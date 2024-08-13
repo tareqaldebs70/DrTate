@@ -17,16 +17,16 @@
 
 
 
-//////////////////////////////////////
-/// Initializing window global Vars///
-//////////////////////////////////////
+////////////////////////////////////////////
+/// Initializing window global Variables ///
+////////////////////////////////////////////
 
 /////////////////////////////////////////////////////////////
-bool         Global::isWindowRunning = true   ;           ///
-int          Global::windowWidth     = 640    ;           ///
-int          Global::windowHeight    = 480    ;           ///
-SDL_Surface* Global::windowIcon      = nullptr;           ///
-std::string  Global::windowTitle     =                    ///
+bool            Global::isWindowRunning     = true   ;    ///
+int             Global::windowWidth         = 640    ;    ///
+int             Global::windowHeight        = 480    ;    ///
+SDL_Surface*    Global::windowIcon          = nullptr;    ///
+std::string     Global::windowTitle         =             ///
 /**/std::string(PROJECT_NAME)                             ///
 +   std::string("  V")                                    ///
 +   std::to_string(PROJECT_VERSION_MAJOR)+std::string(".")///

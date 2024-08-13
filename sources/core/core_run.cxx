@@ -1,6 +1,6 @@
-////////////////////
-/// core_run.cxx ///
-////////////////////
+/////////////////////////
+/// core/core_run.cxx ///
+/////////////////////////
 
 
 
@@ -21,11 +21,6 @@ using namespace Application;
 
 
 
-/////////////////////////////////
-/// This is our program heart ///
-/////////////////////////////////
-
-////////////////////////////////////////////////////////
 void Core::run(void)
 {
 
@@ -36,28 +31,31 @@ void Core::run(void)
     /// Initializing SDL  ///
     /////////////////////////
     
-    ///////////////////////////////////////
-    SDL_InitSubSystem(SDL_INIT_EVERYTHING);
-	
-    // making sure that these pointers
-    // are clean
-    this->m_pWindow   = nullptr;
-    this->m_pRenderer = nullptr;
-
-    this->m_pWindow = SDL_CreateWindow(
-		    Global::windowTitle.c_str(),
-		    SDL_WINDOWPOS_CENTERED,
-		    SDL_WINDOWPOS_CENTERED,
-		    Global::windowWidth,
-            Global::windowHeight,
-		    SDL_WINDOW_SHOWN 
-		    );
-    this->m_pRenderer = SDL_CreateRenderer(
-		    this->m_pWindow,
-		    -1,
-		    SDL_RENDERER_ACCELERATED
-		    );
-    ///////////////////////////////////////
+    //////////////////////////////////////////////////////
+    SDL_InitSubSystem(SDL_INIT_EVERYTHING            );///
+    IMG_Init         (IMG_INIT_PNG                   );///
+    Mix_Init         (MIX_INIT_WAVPACK | MIX_INIT_MP3);///
+    TTF_Init         (                               );///
+	//////////////////////////////////////////////////////
+    // making sure that these pointers                 ///
+    // are clean                                       ///
+    this->m_pWindow   = nullptr;                       ///
+    this->m_pRenderer = nullptr;                       ///
+    //////////////////////////////////////////////////////
+    this->m_pWindow = SDL_CreateWindow(                ///
+		    Global::windowTitle.c_str(),               ///
+		    SDL_WINDOWPOS_CENTERED,                    ///
+		    SDL_WINDOWPOS_CENTERED,                    ///
+		    Global::windowWidth,                       ///
+            Global::windowHeight,                      ///
+		    SDL_WINDOW_SHOWN                           ///
+		    );                                         ///
+    this->m_pRenderer = SDL_CreateRenderer(            ///
+		    this->m_pWindow,                           ///
+		    -1,                                        ///
+		    SDL_RENDERER_ACCELERATED                   ///
+		    );                                         ///
+    //////////////////////////////////////////////////////
 
 
 
@@ -74,6 +72,17 @@ void Core::run(void)
 
 
 
+    //////////////////////
+    /// Starting audio ///
+    //////////////////////
+
+    //////////////////////////////////////////////////
+    Mix_OpenAudio(44100,MIX_DEFAULT_FORMAT,6,4096);///
+    //////////////////////////////////////////////////
+
+
+
+
     //////////////////////////////
     /// Starting scene Manager ///
     //////////////////////////////
@@ -85,138 +94,138 @@ void Core::run(void)
 
 
 
-    //////////////////////////////
-    /// Running the application///
-    //////////////////////////////
+    ///////////////////////////////
+    /// Running the application ///
+    ///////////////////////////////
 
-    //////////////////////////////////////////////////
-    while(Global::isWindowRunning)
-    {
-
-
-
-
-        ////////////////////////////////
-        /// Load Scene if not loaded ///
-        ////////////////////////////////
-
-        ////////////////////////////////////////////////////////////
-        m_pSceneManager->init(this->m_pWindow,this->m_pRenderer);///
-        ////////////////////////////////////////////////////////////
-
-
-
-
-        //////////////////////
-        /// Handing events ///
-        //////////////////////
-
-        ////////////////////////////////////////////////////////////////////
-	    SDL_Event event;                                                 ///
-	    while(SDL_PollEvent(&event))                                     ///
-	    {                                                                ///
-		    switch(event.type)                                           ///
-		    {                                                            ///
-			    case SDL_QUIT:                                           ///
-				    Global::isWindowRunning = false;                     ///
-				    break;                                               ///
-        ///                                                              ///
-        ///                                                              ///
-        ///                                                              ///
-        ///                                                              ///
-                /////////////////////////                                ///
-                /// User input events ///                                ///
-                /////////////////////////                                ///
-        ///                                                              ///
-                /////////////////////////////////////////////////        ///
-                case SDL_KEYDOWN:                             ///        ///
-                    m_pSceneManager->whenKeyboardKeyIsPressed(///        ///
-                        this->m_pWindow,                      ///        ///
-                        &event                                ///        ///
-                    );                                        ///        ///
-                    break;                                    ///        ///
-                case SDL_KEYUP:                               ///        ///
-                    m_pSceneManager->whenKeyboardKeyIsReleased///        ///
-                    (this->m_pWindow,&event);                 ///        ///
-                    break;                                    ///        ///
-                case SDL_MOUSEBUTTONDOWN:                     ///        ///
-                    m_pSceneManager->whenMouseButtonIsPressed(///        ///
-                        this->m_pWindow,                      ///        ///
-                        &event                                ///        ///
-                    );                                        ///        ///
-                    break;                                    ///        ///
-                case SDL_MOUSEBUTTONUP:                       ///        ///
-                    m_pSceneManager->whenMouseButtonIsReleased///        ///
-                    (this->m_pWindow,&event);                 ///        ///
-                    break;                                    ///        ///
-                case SDL_MOUSEMOTION:                         ///        ///
-                    m_pSceneManager->whenMouseMoves(          ///        ///
-                        this->m_pWindow,                      ///        ///
-                        &event                                ///        ///
-                    );                                        ///        ///
-                    break;                                    ///        ///
-                case SDL_MOUSEWHEEL:                          ///        ///
-                    m_pSceneManager->whenMouseWheelIsRolled(  ///        ///
-                        this->m_pWindow,                      ///        ///
-                        &event                                ///        ///
-                    );                                        ///        ///
-                    break;                                    ///        ///
-                /////////////////////////////////////////////////        ///
-        ///                                                              ///
-        ///                                                              ///
-        ///                                                              ///
-        ///                                                              ///
-			    default:                                                 ///
-				    break;                                               ///
-		    }                                                            ///
-	    }                                                                ///
-        ////////////////////////////////////////////////////////////////////
-
-
-
-
-        //////////////////////////////////
-        /// Updating scene simulation  ///
-        //////////////////////////////////
-
-        ///////////////////////////////////////////////////////
-        m_pSceneManager->updateSimulation(SDL_GetTicks64());///
-        ///////////////////////////////////////////////////////
-
-
-
-
-        /////////////////////
-        /// Playing audio ///
-        /////////////////////
-
-        ////////////////////////////////
-        m_pSceneManager->playAudio();///
-        ////////////////////////////////
-
-
-
-
-        /////////////////
-        /// Rendering ///
-        /////////////////
-
-        /////////////////////////////////////////////////
-	    SDL_SetRenderDrawColor(                       ///
-			    this->m_pRenderer,                    ///
-			    0,0,0,255                             ///
-			    );                                    ///
-	    SDL_RenderClear  (this->m_pRenderer);         ///
-        m_pSceneManager->renderGraphics               ///
-        (this->m_pRenderer);                          ///
-	    SDL_RenderPresent(this->m_pRenderer);         ///
-        /////////////////////////////////////////////////
-
-
-
-
-    }
-    /////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////
+    while(Global::isWindowRunning)                                              ///
+    {                                                                           ///
+    ///                                                                         ///
+    ///                                                                         ///
+    ///                                                                         ///
+    ///                                                                         ///
+        ////////////////////////////////                                        ///
+        /// Load Scene if not loaded ///                                        ///
+        ////////////////////////////////                                        ///
+    ///                                                                         ///
+        ////////////////////////////////////////////////////////////            ///
+        m_pSceneManager->init(this->m_pWindow,this->m_pRenderer);///            ///
+        ////////////////////////////////////////////////////////////            ///
+    ///                                                                         ///
+    ///                                                                         ///
+    ///                                                                         ///
+    ///                                                                         ///
+        //////////////////////                                                  ///
+        /// Handing events ///                                                  ///
+        //////////////////////                                                  ///
+    ///                                                                         ///
+        ////////////////////////////////////////////////////////////////////    ///
+	    SDL_Event event;                                                 ///    ///
+	    while(SDL_PollEvent(&event))                                     ///    ///
+	    {                                                                ///    ///
+		    switch(event.type)                                           ///    ///
+		    {                                                            ///    ///
+			    case SDL_QUIT:                                           ///    ///
+				    Global::isWindowRunning = false;                     ///    ///
+				    break;                                               ///    ///
+        ///                                                              ///    ///
+        ///                                                              ///    ///
+        ///                                                              ///    ///
+        ///                                                              ///    ///
+                /////////////////////////                                ///    ///
+                /// User input events ///                                ///    ///
+                /////////////////////////                                ///    ///
+        ///                                                              ///    ///
+                /////////////////////////////////////////////////        ///    ///
+                case SDL_KEYDOWN:                             ///        ///    ///
+                    m_pSceneManager->whenKeyboardKeyIsPressed(///        ///    ///
+                        this->m_pWindow,                      ///        ///    ///
+                        &event                                ///        ///    ///
+                    );                                        ///        ///    ///
+                    break;                                    ///        ///    ///
+                case SDL_KEYUP:                               ///        ///    ///
+                    m_pSceneManager->whenKeyboardKeyIsReleased///        ///    ///
+                    (this->m_pWindow,&event);                 ///        ///    ///
+                    break;                                    ///        ///    ///
+                case SDL_MOUSEBUTTONDOWN:                     ///        ///    ///
+                    m_pSceneManager->whenMouseButtonIsPressed(///        ///    ///
+                        this->m_pWindow,                      ///        ///    ///
+                        &event                                ///        ///    ///
+                    );                                        ///        ///    ///
+                    break;                                    ///        ///    ///
+                case SDL_MOUSEBUTTONUP:                       ///        ///    ///
+                    m_pSceneManager->whenMouseButtonIsReleased///        ///    ///
+                    (this->m_pWindow,&event);                 ///        ///    ///
+                    break;                                    ///        ///    ///
+                case SDL_MOUSEMOTION:                         ///        ///    ///
+                    m_pSceneManager->whenMouseMoves(          ///        ///    ///
+                        this->m_pWindow,                      ///        ///    ///
+                        &event                                ///        ///    ///
+                    );                                        ///        ///    ///
+                    break;                                    ///        ///    ///
+                case SDL_MOUSEWHEEL:                          ///        ///    ///
+                    m_pSceneManager->whenMouseWheelIsRolled(  ///        ///    ///
+                        this->m_pWindow,                      ///        ///    ///
+                        &event                                ///        ///    ///
+                    );                                        ///        ///    ///
+                    break;                                    ///        ///    ///
+                /////////////////////////////////////////////////        ///    ///
+        ///                                                              ///    ///
+        ///                                                              ///    ///
+        ///                                                              ///    ///
+        ///                                                              ///    ///
+			    default:                                                 ///    ///
+				    break;                                               ///    ///
+		    }                                                            ///    ///
+	    }                                                                ///    ///
+        ////////////////////////////////////////////////////////////////////    ///
+    ///                                                                         ///
+    ///                                                                         ///
+    ///                                                                         ///
+    ///                                                                         ///
+        //////////////////////////////////                                      ///
+        /// Updating scene simulation  ///                                      ///
+        //////////////////////////////////                                      ///
+    ///                                                                         ///
+        ///////////////////////////////////////////////////////                 ///
+        m_pSceneManager->updateSimulation(SDL_GetTicks64());///                 ///
+        ///////////////////////////////////////////////////////                 ///
+    ///                                                                         ///
+    ///                                                                         ///
+    ///                                                                         ///
+    ///                                                                         ///
+        /////////////////////                                                   ///
+        /// Playing audio ///                                                   ///
+        /////////////////////                                                   ///
+    ///                                                                         ///
+        ////////////////////////////////                                        ///
+        m_pSceneManager->playAudio();///                                        ///
+        ////////////////////////////////                                        ///
+    ///                                                                         ///
+    ///                                                                         ///
+    ///                                                                         ///
+    ///                                                                         ///
+        /////////////////                                                       ///
+        /// Rendering ///                                                       ///
+        /////////////////                                                       ///
+    ///                                                                         ///
+        /////////////////////////////////////////////////                       ///
+	    SDL_SetRenderDrawColor(                       ///                       ///
+			    this->m_pRenderer,                    ///                       ///
+			    0,0,0,255                             ///                       ///
+			    );                                    ///                       ///
+	    SDL_RenderClear  (this->m_pRenderer);         ///                       ///
+        m_pSceneManager->renderGraphics               ///                       ///
+        (this->m_pRenderer);                          ///                       ///
+	    SDL_RenderPresent(this->m_pRenderer);         ///                       ///
+        /////////////////////////////////////////////////                       ///
+    ///                                                                         ///
+    ///                                                                         ///
+    ///                                                                         ///
+    ///                                                                         ///
+    }                                                                           ///
+    ///////////////////////////////////////////////////////////////////////////////
 
 
 
@@ -231,6 +240,9 @@ void Core::run(void)
     SDL_FreeSurface    (Global::windowIcon);///
     SDL_DestroyRenderer(this->m_pRenderer );///
     SDL_DestroyWindow  (this->m_pWindow   );///
+    TTF_Quit           (                  );///
+    Mix_Quit           (                  );///
+    IMG_Quit           (                  );///
     SDL_Quit           (                  );///
     ///////////////////////////////////////////
 
@@ -238,4 +250,3 @@ void Core::run(void)
 
 
 }
-////////////////////////////////////////////////////////

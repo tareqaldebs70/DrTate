@@ -1,9 +1,12 @@
-.:  --exclude-dir=1
-./assets/icon.bmp:  binary file
-./includes/common/config.h.in:  listed in $Not_Code_Extension{in}
-./includes/core/core.hxx.in:  listed in $Not_Code_Extension{in}
-./includes/global/global.hxx.in:  listed in $Not_Code_Extension{in}
-./includes/scene_manager/scene_manager.hxx.in:  listed in $Not_Code_Extension{in}
-./includes/scene_manager/scenes_list.hxx.in:  listed in $Not_Code_Extension{in}
-./includes/scenes/scene.hxx.in:  listed in $Not_Code_Extension{in}
-./sources/main/main.hxx.in:  listed in $Not_Code_Extension{in}
+# DOCTOR TATE
+___
+![Image](./assets/icon.bmp "DocorTate")
+___
+Version: 0.0.0.1pre-alpha demo
+___
+## About:
+### It's simply a game about a bald man with hand santizer who is trying to kill all germs and viruses in his way.
+___
+## This is a platformer game.
+___
+
